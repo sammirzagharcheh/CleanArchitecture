@@ -47,11 +47,12 @@ public static class DependencyInjection
         {
             configure.Title = "CleanArchitecture API";
 
+
             // Add the fluent validations schema processor
             var fluentValidationSchemaProcessor = 
                 sp.CreateScope().ServiceProvider.GetRequiredService<FluentValidationSchemaProcessor>();
 
-            configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
+            configure.SchemaSettings.SchemaProcessors.Add(fluentValidationSchemaProcessor);
 
 #if (UseApiOnly)
             // Add JWT
